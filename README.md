@@ -1,8 +1,8 @@
 # saaras-tray
 
-> Tray-app dictation for 10 Indic languages. Codemix Hinglish included. Apple/Google dictation, but actually good.
+> Tray-app dictation for 10 Indic languages. Codemix Hinglish included.
 
-**Status:** v0.1 — planning. Not yet released.
+**Status:** v0.1 — in development.
 
 **Sovereignty:** sovereign-by-construction. BYO endpoint, BYO key, BYO model.
 A local-only configuration is documented and tested.
@@ -14,22 +14,42 @@ Best-effort community shovel — no SLA, no roadmap commitments.
 
 ## What this is
 
-Tray-app dictation for 10 Indic languages. Codemix Hinglish included. Apple/Google dictation, but actually good.
+Tray-app dictation for 10 Indic languages. Codemix Hinglish included.
 
 ## What this isn't
 
-Not a keyboard replacement. Not a translator (that's sarvam-translate). Not (in v0.1) an offline-only mode.
+See [PRD-v1.md](./PRD-v1.md) for the full anti-scope definition.
 
 ## Install
 
-> Coming with v0.1 release.
+### From package manager (when v0.1 ships)
+
+```bash
+npm install && npm run tauri build
+```
+
+### Build from source
+
+```bash
+git clone https://github.com/sovereign-shovels/saaras-tray.git
+cd saaras-tray
+```
+# Install dependencies
+npm install
+
+# Build desktop app
+npm run tauri build
+
+# Or run in dev mode
+npm run tauri dev
+```
 
 ## Configure
 
 You bring the model. By default `saaras-tray` tries to use a local provider:
 
 - For LLM endpoints: Ollama at `http://localhost:11434`
-- For voice endpoints: configurable, see [docs/configure.md]
+- For voice endpoints: configurable, see docs
 
 To use any other provider (Claude, GPT, Hermes, OpenRouter, Sarvam, etc.):
 
@@ -46,7 +66,7 @@ LM Studio, and vLLM all work via their OpenAI-compatible endpoints.
 
 ## Why this exists
 
-Indic dictation on macOS, Windows, and Linux is genuinely broken. Apple's dictation for Hindi/Tamil/Telugu has been bad for years. Google's only works in Chrome. Indians who think and write in their first language type slower than they think — and that's a quality-of-life problem at scale. Saaras v3 is best-in-class for Indic STT including Hinglish/Tanglish codemix. saaras-tray puts it on a global hotkey.
+See [PRD-v1.md](./PRD-v1.md) for the problem statement and rationale.
 
 ## What's next
 
