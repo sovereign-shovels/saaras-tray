@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>saaras-tray</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --border: #334155;
+      --success: #22c55e;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+    h1 { font-size: 1.25rem; margin-bottom: 4px; }
+    .subtitle { color: var(--muted); font-size: 0.875rem; margin-bottom: 24px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .card h2 {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+    label {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 0.875rem;
+    }
+    label span {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 0.875rem;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .row {
+      display: flex;
+      gap: 12px;
+    }
+    .row > * { flex: 1; }
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .toggle input { width: auto; }
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      background: var(--bg);
+      border-radius: 6px;
+      font-size: 0.875rem;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
+    .status-dot.recording { background: var(--danger); animation: pulse 1s infinite; }
+    .status-dot.ready { background: var(--success); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .hotkey {
+      font-family: ui-monospace, monospace;
+      background: var(--bg);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+    }
+    footer {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>saaras-tray</h1>
+  <p class="subtitle">Tray dictation for 10 Indic languages</p>
+
+  <div class="card">
+    <h2>Status</h2>
+    <div class="status">
+      <div class="status-dot ready" id="status-dot"></div>
+      <span id="status-text">Ready — press <span class="hotkey" id="hotkey-display">Cmd+Shift+S</span> to dictate</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Language</h2>
+    <label>
+      <span>Primary language</span>
+      <select id="language">
+        <option value="hi-IN">Hindi (hi-IN)</option>
+        <option value="ta-IN">Tamil (ta-IN)</option>
+        <option value="te-IN">Telugu (te-IN)</option>
+        <option value="bn-IN">Bengali (bn-IN)</option>
+        <option value="mr-IN">Marathi (mr-IN)</option>
+        <option value="gu-IN">Gujarati (gu-IN)</option>
+        <option value="kn-IN">Kannada (kn-IN)</option>
+        <option value="ml-IN">Malayalam (ml-IN)</option>
+        <option value="pa-IN">Punjabi (pa-IN)</option>
+        <option value="ur-IN">Urdu (ur-IN)</option>
+      </select>
+    </label>
+    <label class="toggle">
+      <input type="checkbox" id="codemix" checked />
+      <span>Enable codemix mode (Hinglish / Tanglish)</span>
+    </label>
+  </div>
+
+  <div class="card">
+    <h2>Provider</h2>
+    <label>
+      <span>STT Provider</span>
+      <select id="provider">
+        <option value="saaras">Saaras v3 (cloud)</option>
+        <option value="local">Local Whisper (v0.5)</option>
+      </select>
+    </label>
+    <label>
+      <span>API Key Env Var (for Saaras)</span>
+      <input type="text" id="api-key-env" placeholder="SAARAS_API_KEY" value="SAARAS_API_KEY" />
+    </label>
+  </div>
+
+  <div class="card">
+    <h2>Config</h2>
+    <p style="font-size: 0.875rem; color: var(--muted);">
+      Edit <code style="background: var(--bg); padding: 2px 6px; border-radius: 4px;">~/.config/saaras-tray/config.toml</code> for advanced settings.
+    </p>
+  </div>
+
+  <footer>
+    <a href="https://github.com/sovereign-shovels/saaras-tray">GitHub</a> ·
+    Part of <a href="https://github.com/sovereign-shovels">sovereign-shovels</a>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

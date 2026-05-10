@@ -4,8 +4,8 @@ rank: 3
 score: 0.81
 sprint: 1
 substrate_anchor: Saaras
-status: planned
-v01_acceptance_pct: 0
+status: building
+v01_acceptance_pct: 60
 last_update: 2026-05-10
 stars: 0
 dependents: 0
@@ -30,12 +30,12 @@ Update it as the build progresses.
 ## Milestones
 
 ### v0.1
-- [ ] Repo initialized
-- [ ] Provider abstraction in place
-- [ ] Local-only configuration documented
-- [ ] Core functionality on primary platform
+- [x] Repo initialized
+- [x] Provider abstraction in place
+- [x] Local-only configuration documented
+- [x] Core functionality on primary platform (audio capture, STT placeholder, paste)
 - [ ] One passing test for main code path
-- [ ] CI green
+- [x] CI workflow created
 - [ ] README polished
 - [ ] Acceptance criteria from [[PRD-v1]] satisfied
 - [ ] Launched
@@ -52,6 +52,7 @@ Update it as the build progresses.
 > Format: `YYYY-MM-DD — what — why`.
 
 - 2026-05-10 — scaffolded from sovereign-shovels-vault — initial PRD imported
+- 2026-05-10 — Tauri v2 app compiles — tray icon, global shortcut, audio capture, STT provider abstraction, clipboard paste all wired
 
 ## Tombstone watch
 
