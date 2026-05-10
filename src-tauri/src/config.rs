@@ -53,7 +53,7 @@ impl Config {
 
         // Defaults
         if merged.endpoint.is_none() {
-            merged.endpoint = Some("wss://api.sarvam.ai/v1/speech-to-text/stream".into());
+            merged.endpoint = Some("https://api.sarvam.ai/speech-to-text".into());
         }
         if merged.language.is_none() {
             merged.language = Some("hi-IN".into());

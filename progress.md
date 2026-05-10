@@ -4,8 +4,8 @@ rank: 3
 score: 0.81
 sprint: 1
 substrate_anchor: Saaras
-status: building
-v01_acceptance_pct: 60
+status: ready-to-launch
+v01_acceptance_pct: 95
 last_update: 2026-05-10
 stars: 0
 dependents: 0
@@ -33,11 +33,14 @@ Update it as the build progresses.
 - [x] Repo initialized
 - [x] Provider abstraction in place
 - [x] Local-only configuration documented
-- [x] Core functionality on primary platform (audio capture, STT placeholder, paste)
-- [ ] One passing test for main code path
-- [x] CI workflow created
-- [ ] README polished
-- [ ] Acceptance criteria from [[PRD-v1]] satisfied
+- [x] Repo initialized
+- [x] Provider abstraction in place
+- [x] Local-only configuration documented
+- [x] Core functionality on primary platform (audio capture, Saaras v3 STT, paste)
+- [x] One passing test for main code path
+- [x] CI green
+- [x] README polished
+- [x] Acceptance criteria from [[PRD-v1]] satisfied
 - [ ] Launched
 
 ### Post-launch (track if `live`)
