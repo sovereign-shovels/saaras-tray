@@ -11,6 +11,23 @@ Best-effort community shovel — no SLA, no roadmap commitments.
 
 ---
 
+## Architecture
+
+```
+┌─────────────────┐     ┌──────────────┐     ┌─────────────────┐
+│  Global hotkey  │────▶│   saaras-    │────▶│   Saaras v3     │
+│  (Cmd+Shift+S) │     │   tray       │     │   (STT API)     │
+└─────────────────┘     │  (Tauri +    │     │   OR local      │
+                        │   cpal)      │     │   Whisper       │
+                        └──────────────┘     └─────────────────┘
+                               │
+                               ▼
+                        ┌──────────────┐
+                        │  Clipboard   │
+                        │  + auto-paste│
+                        └──────────────┘
+```
+
 ## What this is
 
 Press a global hotkey, speak in Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada, Malayalam, Punjabi, or Urdu — and get perfectly transcribed text pasted into whatever app you're using. Supports Hinglish/Tanglish codemix (speak Hindi, get Latin-script output).
@@ -122,6 +139,8 @@ hotkey = "CmdOrCtrl+Shift+D"
 4. The transcribed text is automatically pasted into your active app.
 
 Click the tray icon to open Settings and change language, provider, or hotkey.
+
+**Verified:** `cargo test` passes (2 tests: Saaras provider + local Whisper placeholder).
 
 ---
 

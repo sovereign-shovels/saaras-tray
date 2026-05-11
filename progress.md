@@ -64,3 +64,4 @@ What we're monitoring (from PRD-v1):
 Apple's next iOS/macOS release ships actually-good Indic dictation. Watch WWDC.
 
 Status: not triggered.
+- 2026-05-10 — hardened against local Ollama — all CLI paths verified, compile+tests green
